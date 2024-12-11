@@ -4,10 +4,6 @@ vim.g.mapleader = ' '
 
 vim.g.have_nerd_font = true
 
--- colorscheme
-vim.o.background = 'light'
-vim.cmd 'colorscheme alabaster'
-
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -89,6 +85,8 @@ require 'set-lazy'
 --  You can press `?` in this menu for help. Use `:q` to close the window
 --  To update plugins you can run
 --    :Lazy update
+
+
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({ import = 'plugins' }, {
   ui = {

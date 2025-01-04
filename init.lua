@@ -11,12 +11,5 @@ vim.opt.wrap = true
 vim.opt.shiftwidth = 4
 
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight when yanking text',
-    group = vim.api.nvim_create_augroup('highlight-yank', {clear = true}),
-    callback = function()
-	vim.highlight.on_yank()
-    end,
-})
-
+require('config.highlight_on_yank')
 require('config.lazy')

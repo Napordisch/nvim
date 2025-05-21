@@ -7,9 +7,9 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>')
 vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>')
 
-vim.opt.linebreak = false
-vim.opt.breakindent = false
-vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.wrap = true
 vim.opt.sidescrolloff = 16
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4

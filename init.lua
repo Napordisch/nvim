@@ -67,8 +67,8 @@ require("lazy").setup({
         {
             "p00f/alabaster.nvim",
             confit = function()
-                vim.cmd "colorscheme alabaster"
                 vim.cmd "set termguicolors"
+                vim.cmd "colorscheme alabaster"
             end
         }
 

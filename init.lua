@@ -65,7 +65,11 @@ require("lazy").setup({
             end
         },
         {
-            "p00f/alabaster.nvim"
+            "p00f/alabaster.nvim",
+            confit = function()
+                vim.cmd "colorscheme alabaster"
+                vim.cmd "set termguicolors"
+            end
         }
 
     },
@@ -89,5 +93,3 @@ vim.keymap.set("n", "<C-h>", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
-vim.cmd "colorscheme alabaster"
-vim.cmd "set termguicolors"

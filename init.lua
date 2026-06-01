@@ -5,8 +5,10 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.wrap = true
 
+
 vim.opt.sidescrolloff = 16
 vim.opt.scrolloff=8
+
 
 -- indents
 vim.opt.shiftwidth = 4
@@ -14,13 +16,18 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 
+
 -- line numbers
 vim.opt.relativenumber = false
 vim.opt.number = false
 
+
 -- less disorienting ctrl-d and ctrl-u
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+local const normal_mode_letter_literal = "n"
+
+-- {remap=true} would freeze neovim with infinite recoursion
+vim.keymap.set(normal_mode_letter_literal, "<C-d>", "<C-d>zz") vim.keymap.set(normal_mode_letter_literal, "<C-u>", "<C-u>zz")
+
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking text',
@@ -29,6 +36,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	vim.highlight.on_yank()
     end,
 })
+
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -45,6 +53,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     end
 end
 vim.opt.runtimepath:prepend(lazypath)
+
 
 require("lazy").setup({
     spec = {
@@ -75,19 +84,24 @@ require("lazy").setup({
     },
 })
 
+
 local harpoon = require("harpoon")
+
 
 -- REQUIRED
 harpoon:setup()
 -- REQUIRED
 
+
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
 
 vim.keymap.set("n", "<C-j>", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<C-k>", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<C-l>", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<C-h>", function() harpoon:list():select(4) end)
+
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
